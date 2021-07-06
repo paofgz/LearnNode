@@ -1,9 +1,13 @@
 const express = require('express');
-const tourController = require('../controllers/tourControllers');
+const tourController = require('../controllers/tourController');
 
 const router = express.Router();
 
 // router.param('id', tourController.checkID);
+
+router
+  .route('/top-5-cheap')
+  .get(tourController.aliasTopTours, tourController.getAllTours);
 
 // Create a checkbody middleware
 // Check if body contains the name and price property
